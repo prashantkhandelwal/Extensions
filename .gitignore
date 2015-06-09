@@ -1,6 +1,14 @@
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
+Extensions/obj
+Extensions/bin
+Extensions/debug
+Extensions.Tests/obj
+Extensions.Tests/bin
+Extensions.Tests/debug
+TestResults
+ExtensionsSampleApp
 
 # Folder config file
 Desktop.ini

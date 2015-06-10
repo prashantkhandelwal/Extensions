@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{0448C89B-686A-48F7-AC89-8D92B389110B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionsSampleApp", "ExtensionsSampleApp\ExtensionsSampleApp.csproj", "{7B12B315-1EAC-4DCE-94D9-97A82747E51E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions.Tests", "Extensions.Tests\Extensions.Tests.csproj", "{123A2A0B-AC48-4D2E-A4D0-6A31605754BF}"
 EndProject
 Global

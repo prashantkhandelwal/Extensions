@@ -60,5 +60,28 @@ namespace Extensions.Tests
             Assert.AreEqual(str, str.TruncateWithEllipses(100));
             Assert.AreEqual(emptyStr, emptyStr.TruncateWithEllipses(3));
         }
+
+        [TestMethod]
+        public void IsValidUrl_Test()
+        {
+            string str = "http://google.com";
+            Assert.IsTrue(str.IsValidUrl());
+
+            string strNoURL = "google.com";
+            Assert.IsFalse(strNoURL.IsValidUrl());
+        }
+
+        [TestMethod]
+        public void IsNumber_Test()
+        {
+            string str = "3";
+            Assert.IsTrue(str.IsNumber());
+
+            string strEmpty = "";
+            Assert.IsFalse(strEmpty.IsNumber());
+
+            string strString = "this";
+            Assert.IsFalse(strString.IsNumber());
+        }
     }
 }

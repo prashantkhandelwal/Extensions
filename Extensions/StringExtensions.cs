@@ -91,5 +91,30 @@ namespace Extensions.String
             return str.Substring(0, TerminateLength) + "...";
         }
 
+        /// <summary>
+        /// Indicates if the URL is valid
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public static bool IsValidUrl(this string url)
+        {
+            return Uri.IsWellFormedUriString(url.Trim(), UriKind.Absolute);
+        }
+
+        /// <summary>
+        /// Checks if the given string is a number
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static bool IsNumber(this string str)
+        {
+            if (str.Trim().Length == 0) return false;
+
+            foreach (char c in str)
+            {
+                if (!char.IsNumber(c)) return false;
+            }
+            return true;
+        }
     }
 }

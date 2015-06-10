@@ -83,5 +83,18 @@ namespace Extensions.Tests
             string strString = "this";
             Assert.IsFalse(strString.IsNumber());
         }
+
+        public void IsGuid_Test()
+        {
+            string guid_1 = "{B403E835-8D7D-4168-BBFA-14EE9951211E}";
+            string guid_2 = "{24D26D8D-69CA-4E39-8191-AAD7366412CA}";
+            string guid_3 = "[Guid(\"24D26D8D-69CA-4E39-8191-AAD7366412CA\")]";
+            string guid_4 = "<Guid(\"24D26D8D-69CA-4E39-8191-AAD7366412CA\")>";
+
+            Assert.IsTrue(guid_1.IsGuid());
+            Assert.IsTrue(guid_2.IsGuid());
+            Assert.IsTrue(guid_3.IsGuid());
+            Assert.IsTrue(guid_4.IsGuid());
+        }
     }
 }

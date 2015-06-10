@@ -116,5 +116,24 @@ namespace Extensions.String
             }
             return true;
         }
+
+        /// <summary>
+        /// Check if the given string is GUID
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsGuid(this string str)
+        {
+            if (str == null)
+                throw new ArgumentNullException();
+
+            Regex format = new Regex(
+                "^[A-Fa-f0-9]{32}$|" +
+                "^({|\\()?[A-Fa-f0-9]{8}-([A-Fa-f0-9]{4}-){3}[A-Fa-f0-9]{12}(}|\\))?$|" +
+                "^({)?[0xA-Fa-f0-9]{3,10}(, {0,1}[0xA-Fa-f0-9]{3,6}){2}, {0,1}({)([0xA-Fa-f0-9]{3,4}, {0,1}){7}[0xA-Fa-f0-9]{3,4}(}})$");
+            Match match = format.Match(str);
+
+            return match.Success;
+        }
     }
 }

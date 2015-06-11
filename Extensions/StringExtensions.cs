@@ -149,5 +149,7 @@ namespace Extensions.String
             TextInfo textInfo = cultureInfo.TextInfo;
             return textInfo.ToTitleCase(text);
         }
+
+        
     }
 }

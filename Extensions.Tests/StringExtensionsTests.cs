@@ -96,5 +96,14 @@ namespace Extensions.Tests
             Assert.IsTrue(guid_3.IsGuid());
             Assert.IsTrue(guid_4.IsGuid());
         }
+
+        [TestMethod]
+        public void ToProperCase_Test()
+        {
+            string str_1 = "this is a default test title";
+            string str_2 = "This is a DefaulT TEST TiTlE";
+            Assert.AreEqual("This Is A Default Test Title", str_1.ToProperCase());
+            Assert.AreEqual("This Is A Default TEST Title", str_2.ToProperCase());
+        }
     }
 }

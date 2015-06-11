@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Extensions.String
 {
@@ -134,6 +136,18 @@ namespace Extensions.String
             Match match = format.Match(str);
 
             return match.Success;
+        }
+
+        /// <summary>
+        /// Returns the string with a proper title casing
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string ToProperCase(this string text)
+        {
+            CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
+            TextInfo textInfo = cultureInfo.TextInfo;
+            return textInfo.ToTitleCase(text);
         }
     }
 }

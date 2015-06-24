@@ -105,5 +105,27 @@ namespace Extensions.Tests
             Assert.AreEqual("This Is A Default Test Title", str_1.ToProperCase());
             Assert.AreEqual("This Is A Default TEST Title", str_2.ToProperCase());
         }
+
+        [TestMethod]
+        public void IsAlphanumeric_Test()
+        {
+            string str_1 = "abcd";
+            string str_2 = "#$%#$%";
+            string str_3 = "abcd12";
+            string str_4 = "HH&@#";
+            string str_5 = "23424";
+            Assert.IsTrue(str_1.IsAlphanumeric());
+            Assert.IsFalse(str_2.IsAlphanumeric());
+            Assert.IsTrue(str_3.IsAlphanumeric());
+            Assert.IsFalse(str_4.IsAlphanumeric());
+            Assert.IsTrue(str_5.IsAlphanumeric());
+        }
+
+        [TestMethod]
+        public void MD5Encode_Test()
+        {
+            string str = "Microsoft";
+            Assert.AreEqual("140864078AECA1C7C35B4BEB33C53C34", str.MD5Encode());
+        }
     }
 }

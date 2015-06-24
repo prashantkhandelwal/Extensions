@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -143,11 +144,41 @@ namespace Extensions.String
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        public static string ToProperCase(this string text)
+        public static string ToProperCase(this string str)
         {
             CultureInfo cultureInfo = Thread.CurrentThread.CurrentCulture;
             TextInfo textInfo = cultureInfo.TextInfo;
-            return textInfo.ToTitleCase(text);
+            return textInfo.ToTitleCase(str);
+        }
+
+        /// <summary>
+        /// Check if the string is alphanumeric
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static bool IsAlphanumeric(this string str)
+        {
+            Regex pattern = new Regex("[^0-9a-zA-Z]");
+            return !pattern.IsMatch(str);
+        }
+
+        /// <summary>
+        /// Returns MD5 of the string
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string MD5Encode(this string str)
+        {
+            MD5 md5 = MD5.Create();
+            StringBuilder sb = new StringBuilder();
+
+            byte[] inputBytes = Encoding.ASCII.GetBytes(str);
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+            for (int i = 0; i < hash.Length; i++)
+                sb.Append(hash[i].ToString("X2"));
+
+            return sb.ToString();
         }
     }
 }
